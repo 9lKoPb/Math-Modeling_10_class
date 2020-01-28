@@ -49,3 +49,33 @@ ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 
 plt.show()
+
+
+
+G = 6.67*10**-11
+ае = 149.6*10**9
+mс = 2 * 10**30
+
+x10 = 2*ае
+vx10 = 0
+y10 = 0   
+vy10 = -np.sqrt(G*(1.06*mc+0.6*mc+0.3*mc)/8.1*ае)  
+    
+x20 = 5*ае
+vx20 = 0
+y20 = 0   
+vy20 = np.sqrt(G*(1.06*mc+0.6*mc+0.3*mc)/8.1*ае)  
+    
+x30 = 6*ае
+vx30 = 0
+y30 = 0   
+vy30 = np.sqrt(G*(1.06*mc+0.6*mc+0.3*mc)/8.1*ае)  
+    
+s0 = (x10, vx10, y10, vy10,
+      x20, vx20, y20, vy20,
+      x30, vx30, y30, vy30)
+m1 = 1.06*mc
+m2 = 0.6*mc
+m3 = 0.3*mc
+
+sol = odeint(func, s0, t)
